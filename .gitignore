@@ -1,0 +1,10 @@
+check.txt
+vendor
+.htaccess
+composer.lock
+*.log
+./public/upload
+/public/upload*
+.idea
+*.git
+docker-compose.yml
