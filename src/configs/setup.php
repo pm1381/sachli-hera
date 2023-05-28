@@ -3,26 +3,17 @@
 use App\Configs\Application;
 
 define("PORT", 7000);
-define('HOST_NAME', 'maria_db');
+define('HOST_NAME', $_ENV['HOST_NAME']);
 define('DOMAIN', "http://localhost/");
-define('DRIVER', "mysql");
-define('BASE_URL', 'http://localhost:' . PORT . '/admin/list/');
+define('DRIVER', $_ENV['driver']);
 define('ORIGIN', 'http://localhost:' . PORT . '/');
 define('ADMIN_ORIGIN', 'http://localhost:' . PORT . '/admin');
-define('JWT_SECRET_KEY', 'new test for project');
-define('JWT_ALGORITHM', 'HS512');
-define('EXPIRE_DATE', '+55 minutes');
-define('LIMIT', 10);
+define('LIMIT', $_ENV['limit']);
 
-//---mongo database---//
-define('MONGO_DB_NAME', '');
+define('DB_NAME', $_ENV['DB_NAME']);
+define('USERNAME', $_ENV['USERNAME']);
+define('PASSWORD', $_ENV['password']);
 
-//---mysql database---//
-define('DB_NAME', 'hera');
-define('USERNAME', 'parham');
-define('PASSWORD', 'secret');
-
-//---statics---//
 define("NAMESPACE_SEPRATOR", "\\");
 define('SRC', 'src' . DIRECTORY_SEPARATOR);
 define('STORAGE', BASE . "\\" . 'storage' . DIRECTORY_SEPARATOR);
@@ -50,7 +41,6 @@ define("Router_NAMESPACE", "App\Routers" . NAMESPACE_SEPRATOR);
 define("Policy_NAMESPACE", "App\Policies" . NAMESPACE_SEPRATOR);
 define("MIDDLEWARE_NAMESPACE", "App\MiddleWares" . NAMESPACE_SEPRATOR);
 
-// and adding all files from library floder
 // ./vendor/bin/phpcs  --standard=phpcs.xml src\ phpcs check error. to solve errors use phpcbf
 require LIBRARY . 'Function.php';
 require LIBRARY . 'JDF.php';

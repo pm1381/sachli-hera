@@ -3,7 +3,7 @@
 namespace App\Helpers;
 
 use App\Classes\Response;
-use App\Controllers\Refrence\GeneralRefrenceController;
+use App\Models\Log;
 use Rakit\Validation\ErrorBag;
 
 class Tools
@@ -126,7 +126,7 @@ class Tools
         $file = VIEW . $finalTemplate . '.php';
         if (file_exists($file)) {
             $data = json_decode(json_encode($found, JSON_INVALID_UTF8_IGNORE));
-            $data->form->queryLog = GeneralRefrenceController::queryLog();
+            $data->form->queryLog = Log::queryLog();
             require_once $file;
         } else {
             Response::setStatus(404, 'page not found');
@@ -236,54 +236,5 @@ class Tools
             }
         }
         return $list;
-    }
-
-    public static function adminMenu()
-    {
-        $menu = [
-            [
-                'role' => 'admin',
-                'url' => '/admin/',
-                'title' => 'مدیران',
-                'child' => []
-            ],
-            [
-                'role' => 'manageFile',
-                'url' => '/file/',
-                'title' => 'فایل',
-                'child' => []
-            ],
-            [
-                'role' => 'category',
-                'url' => '/category/',
-                'title' => 'دسته بندی',
-                'child' => []
-            ],
-            [
-                'role' => 'manageUser',
-                'url' => '/userDedication/',
-                'title' => 'تخصیص کاربر',
-                'child' => []
-            ],
-            [
-                'role' => 'user',
-                'url' => '/user/',
-                'title' => 'کاربران',
-                'child' => []
-            ],
-            [
-                'role' => 'transfered',
-                'url' => '/transfered/',
-                'title' => 'انتقال',
-                'child' => []
-            ],
-            [
-                'role' => 'report',
-                'url' => '/report/',
-                'title' => 'گزارش',
-                'child' => []
-            ]
-        ];
-        return $menu;
     }
 }

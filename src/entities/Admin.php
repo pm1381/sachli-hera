@@ -2,11 +2,8 @@
 
 namespace App\Entities;
 
-use App\Classes\Cookie;
-use App\Classes\Jwt;
 use App\Classes\Session;
 use App\Models\Admin as ModelsAdmin;
-use DateTimeImmutable;
 
 class Admin
 {
@@ -174,8 +171,6 @@ class Admin
     public function isLogin()
     {
         $data['login'] = false;
-        // بر دو جهان نمیدهم یک سر تار موی تو
-        // یو هوو هاهاهااا
         $session = new Session();
         if ($session->exists('userId')) {
             $token = $session->get('token');
@@ -184,25 +179,6 @@ class Admin
             if (count($result)) {
                 $data['login'] = true;
                 $data['admin'] = $result[0];
-            }
-        }
-        return $data;
-    }
-
-    public function isLoginJwt()
-    {
-        $data['login'] = false;
-        $cookie = new Cookie();
-        $jwtString = $cookie->get('jwtToken');
-        if ($jwtString != null) {
-            $now = new DateTimeImmutable();
-            $jwt = new Jwt();
-            $result = $jwt->get($jwtString);
-            if ($result->iss == DOMAIN && $result->nbf <= $now->getTimestamp() && $result->exp >= $now->getTimestamp()) {
-                $data['login'] = true;
-                $admin = new ModelsAdmin();
-                $res = $admin->getByFieldName('token', $jwtString);
-                $data['admin'] = $res[0];
             }
         }
         return $data;

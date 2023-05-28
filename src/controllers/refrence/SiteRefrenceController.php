@@ -8,7 +8,7 @@ use Rakit\Validation\Validator;
 
 class SiteRefrenceController extends GeneralRefrenceController
 {
-    protected $redirectTo = BASE_URL;
+    protected $redirectTo = ORIGIN;
 
     public function __construct()
     {

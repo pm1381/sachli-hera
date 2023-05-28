@@ -8,9 +8,7 @@ use App\Models\File;
 
 class Arrays
 {
-    public static $admins = [];
-    public static $categories = [];
-    public static $files = [];
+    // public static $admins = [];
 
     public static function errorView()
     {
@@ -44,51 +42,6 @@ class Arrays
     public static function permanentParams()
     {
         return ['search'];
-    }
-
-    public static function admins()
-    {
-        if (! self::$admins) {
-            $admin = new Admin();
-            $res = $admin->getAll();
-            foreach ($res as $value) {
-                self::$admins[$value->id] = [
-                    'id' => $value->id,
-                    'title' => $value->name
-                ];
-            }
-        }
-        return self::$admins;
-    }
-
-    public static function files()
-    {
-        if (! self::$files) {
-            $admin = new File();
-            $res = $admin->getAll();
-            foreach ($res as $value) {
-                self::$files[$value->id] = [
-                    'id' => $value->id,
-                    'title' => $value->name
-                ];
-            }
-        }
-        return self::$files;
-    }
-
-    public static function categories()
-    {
-        if (! self::$categories) {
-            $admin = new Category();
-            $res = $admin->getAll();
-            foreach ($res as $value) {
-                self::$categories[$value->id] = [
-                    'id' => $value->id,
-                    'title' => $value->title
-                ];
-            }
-        }
-        return self::$categories;
     }
 
     public static function fieldNameTranslations()

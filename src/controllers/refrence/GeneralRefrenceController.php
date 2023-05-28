@@ -26,16 +26,10 @@ class GeneralRefrenceController
             $this->model = $newInstance;
         }
         $this->data['basic'] = [
-            'title' => 'hear1',
-            'description' => 'description hear1'
+            'title' => 'sachli',
+            'description' => 'sachli'
         ];
-        $this->data['makeNewUrl'] = "/" . strtolower($modelName) . '/new/';
         $this->data['form']['page'] = strtolower($modelName);
-        
-        if (strpos(Tools::getUrl(), '/userDedication/') !== false) {
-            $this->data['form']['page'] = 'userDedication';
-        }
-
     }
 
     protected function makeClassData($dataArray, $className)
@@ -60,44 +54,5 @@ class GeneralRefrenceController
             }
         }
         return '';
-    }
-
-    protected function insertLog($currentAdmin)
-    {
-        $data = json_encode($_REQUEST);
-        if ($data == "[]") {
-            $json = file_get_contents('php://input');
-            if ($json) {
-                $data = $json;
-            }
-        }
-
-        $log = new Log();
-        $log->insert([
-            'admin' => $currentAdmin->id,
-            'url' => $_SERVER['REQUEST_URI'],
-            'data' => $data,
-            'date' => Date::now()
-        ]);
-    }
-
-    public static function queryLog()
-    {
-        $logData = [];
-        $time = 0;
-        $res = DB::getQueryLog();
-        foreach ($res as  $value) {
-            $logData['detail'][] = [
-                'time' => $value['time'], // milli seconds
-                'query' => $value['query']
-                // 'bindings' => $value['bindings']
-            ];
-            $time += $value['time'];
-        }
-        $logData['basic'] = [
-            'count' => count($res),
-            'totalTime' => $time
-        ];
-        return $logData;
     }
 }

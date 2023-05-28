@@ -10,13 +10,6 @@ class General
 {
     public function loginCheck()
     {
-        // login check using sessions;
-        // $current = $userService->isLogin();
-        $admin = new Admin();
-        $current = $admin->isLoginJwt();
-        if ($current['login'] == false) {
-            Tools::redirect(ADMIN_ORIGIN . '/login/');
-            exit();
-        }
+        //
     }
 }
