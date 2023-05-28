@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile
     container_name: web-php
     volumes:
+      # - /var/www/html/vendor ---> this makes this folder preserved.
       - ./:/var/www/html/
     ports: 
       - 7000:80
