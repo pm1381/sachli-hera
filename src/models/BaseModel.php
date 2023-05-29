@@ -48,6 +48,19 @@ class BaseModel extends Model
         return count($res);
     }
 
+    public function getAll($whereQ = [])
+    {
+        $skip = Tools::startSkip(LIMIT);
+        $res = json_encode(
+            DB::table($this->table)->where(function ($query) use ($whereQ){
+                foreach ($whereQ as $key => $value) {
+                    $query->orWhere($key, 'LIKE', '%' . $value . "%");
+                }
+            })->skip($skip)->take(LIMIT)->orderBy('created_at', 'DESC')->get()
+        );
+        return $this->data_pure(json_decode(html_entity_decode($res)));
+    }
+
     protected function data_pure($itemsCollection)
     {
         $final = $itemsCollection;
@@ -59,6 +72,12 @@ class BaseModel extends Model
             }
             if (Tools::checkObject($value, 'created_at')) {
                 $value->created_at = Date::M2J("Y-m-d , H:i:s", $value->created_at);
+            }
+            if (Tools::checkObject($value, 'description')) {
+                $value->description = html_entity_decode($value->description);
+            }
+            if (Tools::checkObject($value, 'adminDescription')) {
+                $value->adminDescription = html_entity_decode($value->adminDescription);
             }
         }
         return $final;

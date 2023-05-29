@@ -5,14 +5,14 @@ use App\Configs\Application;
 define("PORT", 7000);
 define('HOST_NAME', $_ENV['HOST_NAME']);
 define('DOMAIN', "http://localhost/");
-define('DRIVER', $_ENV['driver']);
+define('DRIVER', $_ENV['DRIVER']);
 define('ORIGIN', 'http://localhost:' . PORT . '/');
 define('ADMIN_ORIGIN', 'http://localhost:' . PORT . '/admin');
-define('LIMIT', $_ENV['limit']);
+define('LIMIT', $_ENV['LIMIT']);
 
 define('DB_NAME', $_ENV['DB_NAME']);
 define('USERNAME', $_ENV['USERNAME']);
-define('PASSWORD', $_ENV['password']);
+define('PASSWORD', $_ENV['PASSWORD']);
 
 define("NAMESPACE_SEPRATOR", "\\");
 define('SRC', 'src' . DIRECTORY_SEPARATOR);

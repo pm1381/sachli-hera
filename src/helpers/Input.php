@@ -28,7 +28,7 @@ class Input
         return $default;
     }
 
-    public static function getDataJson($wantArray)
+    public static function getDataJson($wantArray = true)
     {
         $json = file_get_contents('php://input');
         if ($wantArray) {
@@ -41,5 +41,14 @@ class Input
     {
         $array = $_REQUEST;
         return $array;
+    }
+
+    public static function only(...$params)
+    {
+        $final = [];
+        foreach ($params as $value) {
+            $final[] = $_REQUEST[$value];
+        }
+        return $final;
     }
 }

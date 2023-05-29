@@ -27,7 +27,6 @@ class Validation
         $validationResult['error'] = false;
         $validationResult['grabResult'] = [];
         if ($this->validData->fails()) {
-        // $errors = Tools::translateErrors($this->validData->errors(), Arrays::fieldNameTranslations());
             $errors = $this->validData->errors();
             $validationResult = [
                 'error' => true,

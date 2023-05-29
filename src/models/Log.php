@@ -9,7 +9,7 @@ use Illuminate\Database\Capsule\Manager as DB;
 
 class Log extends BaseModel
 {
-    protected $fillable = ['data', 'user', 'admin', 'url', 'date'];
+    protected $fillable = ['data', 'admin', 'url', 'date'];
     public $timestamps = false;
 
     public function __construct()

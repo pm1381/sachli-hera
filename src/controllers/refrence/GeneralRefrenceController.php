@@ -2,10 +2,11 @@
 
 namespace App\Controllers\Refrence;
 
-use App\Classes\Date;
 use App\Helpers\Tools;
-use App\Models\Log;
 use ReflectionClass;
+use App\Classes\Validation;
+use App\Helpers\Arrays;
+use Rakit\Validation\Validator;
 use Illuminate\Database\Capsule\Manager as DB;
 
 class GeneralRefrenceController
@@ -54,5 +55,12 @@ class GeneralRefrenceController
             }
         }
         return '';
+    }
+
+    public function checkValidation($data, $pattern)
+    {
+        $validation = new Validation($data, new Validator(Arrays::errorView()));
+        $validation->makeValidation($pattern);
+        return $validation->handleValidationError();
     }
 }

@@ -2,8 +2,6 @@
 
 namespace App\Routers;
 
-use App\Entities\Admin;
-use App\Helpers\Tools;
 use App\Models\Log;
 
 class Routes
@@ -20,11 +18,14 @@ class Routes
         //general middlewares
         $this->router->setNamespace(MIDDLEWARE_NAMESPACE);
         $this->router->before('GET|POST', '/.*', function(){
+            header('Content-Type: application/json; charset=utf-8');
+            // header('Content-Type: application/x-www-form-urlencoded');
             Log::insert();
         });
 
         $this->router->setNamespace(CONTROLLER_NAMESPACE);
         $this->router->get('/', 'site\HomeController@home');
+        $this->router->post('/consult/', 'site\HomeController@consult');
         
     }
 }

@@ -4,8 +4,6 @@ namespace App\Providers;
 
 use App\Helpers\Tools;
 use App\Interfaces\Provider;
-use App\Routers\AuthRoutes;
-use App\Routers\Routes;
 use Bramus\Router\Router;
 use ReflectionClass;
 use ReflectionMethod;
@@ -24,7 +22,7 @@ class RouteServiceProvider extends ServiceProvider implements Provider
             $reflectionMethod = new ReflectionMethod($fullName, 'getAllRoutes');
             $reflectionMethod->invoke($reflectionClass->newInstance($router));
         }
-        // print_f($router);
+        // dd($router);
         $router->run();
     }
 

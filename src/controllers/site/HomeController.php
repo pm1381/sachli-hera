@@ -1,14 +1,42 @@
 <?php
 
-namespace App\Controllers\Admin\Auth;
+namespace App\Controllers\Site;
 
-use App\Controllers\Refrence\AdminRefrenceController;
+use App\Classes\Date;
+use App\Classes\Response;
+use App\Controllers\Refrence\SiteRefrenceController;
+use App\Helpers\Input;
 use App\Helpers\Tools;
+use App\Models\User;
 
-class LoginController extends AdminRefrenceController
+class HomeController extends SiteRefrenceController
 {
     public function home()
     {
         Tools::render('site\home\index', $this->data);
+    }
+
+    public function consult()
+    {
+        $data = Input::getDataJson();
+        $checkError = $this->checkValidation($data, [
+            'name'    => 'required',
+            'surname' => 'required',
+            'mobile'  => 'required|min:11',
+            'field'   => 'required',
+        ]);
+        if ($checkError['error']) {
+            Response::setStatus(402, 'error in input data');
+        }
+        $res = User::insert([
+            'field' => $data['field'],
+            'name'  => $data['name'],
+            'surname' => $data['surname'],
+            'mobile'  => $data['mobile'],
+            'description' => $data['description'],
+            'created_at' => Date::now(),
+            'updated_at' => Date::now()
+        ]);
+        ($res) ? Response::setStatus(200, 'inserted successfully'): Response::setStatus(500, 'error in insert query');
     }
 }

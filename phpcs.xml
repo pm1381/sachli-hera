@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ruleset name="MyRuleset">
+    <description>Coding standard based on Zend with some additions.</description>
+
+    <ruleset name="Custom"/>
+    <!-- Exclude some rules -->
+    <rule ref="PSR12">
+        <exclude name="Generic.Files.LineLength"/>
+    </rule>
+
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/src/libs/*</exclude-pattern>
+    <exclude-pattern>*/docker/*</exclude-pattern>
+
+</ruleset>
