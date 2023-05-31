@@ -16,4 +16,9 @@ class User extends BaseModel
         $this->primaryKey = 'id';
         Model::preventsSilentlyDiscardingAttributes(true);
     }
+
+    // public function getNameAttribute($value)
+    // {
+    //     $this->attributes['name'] = $value . " " . $this->attributes['surname'];
+    // }
 }

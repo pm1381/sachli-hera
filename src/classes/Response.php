@@ -9,8 +9,8 @@ class Response
         http_response_code($code);
         $jsonArray = array();
         $jsonArray['status'] = $code;
+        $jsonArray['message'] = $text;
         $jsonArray['data'] = $data;
-        $jsonArray['status_text'] = $text;
         echo json_encode($jsonArray);
         exit();
     }

@@ -37,7 +37,7 @@ class BaseModel extends Model
         $redis->store($res)->expireDate(60);
     }
 
-    public function countQuery($whereQ = [])
+    public function countAll($whereQ = [])
     {
         $res = DB::table($this->table)->where(function ($query) use ($whereQ){
             foreach ($whereQ as $key => $value) {
@@ -71,7 +71,7 @@ class BaseModel extends Model
                 }
             }
             if (Tools::checkObject($value, 'created_at')) {
-                $value->created_at = Date::M2J("Y-m-d , H:i:s", $value->created_at);
+                $value->created_at = Date::M2J("Y-m-d", $value->created_at);
             }
             if (Tools::checkObject($value, 'description')) {
                 $value->description = html_entity_decode($value->description);
