@@ -15,6 +15,9 @@
   --yellow:                hsl(45, 100%, 54%);
   --white:                 hsl(0, 0%, 100%);
   --azure:                 hsl(211, 100%, 50%);
+  --background-main:       black;
+  --background-support:    gold;
+
 
   /**
    * Typography 

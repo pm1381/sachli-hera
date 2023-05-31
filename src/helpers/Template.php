@@ -27,6 +27,7 @@ class Template
         }
 
         $export = intval(ceil($count / $limit));
+        // dd($export);
         $max = $export;
         $visiblePages = [];
 
@@ -81,7 +82,7 @@ class Template
         if ($export <= 1) {
             $result = '';
         }
-
+        
         return $result;
     }
 }

@@ -61,6 +61,17 @@ class BaseModel extends Model
         return $this->data_pure(json_decode(html_entity_decode($res)));
     }
 
+    public function getFound($whereQ = [])
+    {
+        $res = json_encode(
+            DB::table($this->table)->where(function ($query) use ($whereQ){
+                foreach ($whereQ as $key => $value) {
+                    $query->orWhere($key, 'LIKE', '%' . $value . "%");
+                }
+            })->get());
+        return $this->data_pure(json_decode(html_entity_decode($res)));
+    }
+
     protected function data_pure($itemsCollection)
     {
         $final = $itemsCollection;

@@ -24,4 +24,4 @@
 
 <body>
 
-<?php require_once VIEW . 'admin/popups/loading.php' ?>
+<?php require_once POPUP . 'loading.php' ?>

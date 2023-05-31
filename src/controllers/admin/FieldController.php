@@ -21,7 +21,7 @@ class FieldController extends AdminRefrenceController
         $res = $field->getAll($where);
         $this->data['form']['result'] = $res;
         $this->data['form']['countAll'] = $field->countAll($where); 
-        Response::setStatus(200, '', $res);
+        // Response::setStatus(200, '', $res);
         Tools::render('admin\field\list', $this->data);
     }
 

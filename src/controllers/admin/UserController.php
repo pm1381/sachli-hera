@@ -21,7 +21,8 @@ class UserController extends AdminRefrenceController
         }
         $skip = Tools::startSkip(LIMIT);
         $this->manageSearchParams($where);
-        $res = User::select('user.id', 'mobile', 'name', 'user.field', 'field.title')
+        $obj = User::select('user.id', 'mobile', 'name', 'surname', 'user.created_at', 'user.field', 'field.title')
+            ->leftJoin('field', 'field.id', 'user.field')
             ->where(function($query) use ($where) {
                 foreach ($where as $key => $value) {
                     if ($key == 'field') {
@@ -35,11 +36,12 @@ class UserController extends AdminRefrenceController
                 foreach ($whereInstant as $key => $value) {
                     $query->orWhere($key, 'like', $value);
                 }
-            })
-            ->leftJoin('field', 'field.id', 'user.field')
-            ->skip($skip)->take(LIMIT)->orderBy('user.created_at', 'DESC')->get();
+            });
+        $countRes = $obj->get();
+        $res = $obj->skip($skip)->take(LIMIT)->orderBy('user.created_at', 'DESC')->get();
         $this->data['form']['result'] = $res;
-        Response::setStatus(200, 'founded users', $res);
+        $this->data['form']['countAll'] = count($countRes);
+        // Response::setStatus(200, 'founded users', $res);
         Tools::render('admin\user\list', $this->data);
     }
 
@@ -93,7 +95,7 @@ class UserController extends AdminRefrenceController
             $where['mobile'] = "%" . Input::get('mobile') . "%";
         }
         if (Input::get('field') != "") {
-            $where['field'] =  Input::get('field');
+            $where['field.title'] =  Input::get('field');
         }
     }
 }

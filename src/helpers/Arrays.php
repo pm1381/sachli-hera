@@ -4,11 +4,12 @@ namespace App\Helpers;
 
 use App\Models\Admin;
 use App\Models\Category;
+use App\Models\Field;
 use App\Models\File;
 
 class Arrays
 {
-    // public static $admins = [];
+    public static $field = [];
 
     public static function errorView()
     {
@@ -18,6 +19,20 @@ class Arrays
             'min' => 'field :attribute is less than required amount',
             'same' => 'field :attribute is not the same'
         ];
+    }
+
+    public static function field()
+    {
+        if (! self::$field) {
+            $field = new Field();
+            $res = $field->getFound();
+            if (count($res)) {
+                foreach ($res as  $value) {
+                    self::$field[$value->id] = $value->title;
+                }
+            }
+        }
+        return self::$field;
     }
 
     public static function yesOrNo()

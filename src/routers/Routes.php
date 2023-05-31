@@ -18,7 +18,7 @@ class Routes
         //general middlewares
         $this->router->setNamespace(MIDDLEWARE_NAMESPACE);
         $this->router->before('GET|POST', '/.*', function(){
-            header('Content-Type: application/json; charset=utf-8');
+            // header('Content-Type: application/json; charset=utf-8');
             // header('Content-Type: application/x-www-form-urlencoded');
             Log::insert();
         });

@@ -21,7 +21,7 @@ class LandingController extends AdminRefrenceController
         $res = $Landing->getAll($where);
         $this->data['form']['result'] = $res;
         $this->data['form']['countAll'] = $Landing->countAll($where); 
-        Response::setStatus(200, '', $res);
+        // Response::setStatus(200, '', $res);
         Tools::render('admin\landing\list', $this->data);
     }
 

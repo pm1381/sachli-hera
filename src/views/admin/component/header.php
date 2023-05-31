@@ -17,18 +17,17 @@ $session = new Session();?>
 <?php if ($done != "") { ?>
     <p class="bg-success text-center session"><?php echo $done ?></p>
 <?php } ?>
-<div class="pageToolBox">
+<div class="pageToolBox gapBetween">
     <form class="search" action="./">
         <input name="search" class="searchInput" type="text" placeholder="جستجو .." value="<?php echo Input::get('search'); ?>" />
         <input type="submit" class="effect searchIcon" value="" />
     </form>
     <div class="headerButtons">
-        <div class="btn btn-info new headerFilter  mobileMenu">نمایش منو</div>
-        <?php if ($data->form->page == 'user' || $data->form->page == 'userDedication') { ?>
-            <div class="btn btn-info new headerFilter">فیلتر</div>
+        <?php if ($data->form->page == 'user') { ?>
+            <div class="btn btn-light new headerFilter">فیلتر</div>
         <?php } ?>
-        <?php if ($data->form->page != 'user' && $data->form->page != 'transfer' && $data->form->page != 'report') { ?>
-            <a href="<?php echo ADMIN_ORIGIN . Tools::checkObject($data, 'makeNewUrl') ?>" class="btn btn-info new">ساخت جدید</a>
+        <?php if ($data->form->page != 'user') { ?>
+            <a href="/sachadmin/<?php echo $data->form->page . "/show/" ?>" class="btn btn-light new">ساخت جدید</a>
         <?php } ?>
     </div>
 </div>

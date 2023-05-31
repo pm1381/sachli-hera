@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Classes\Date;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Capsule\Manager as DB;
 
@@ -21,4 +22,9 @@ class User extends BaseModel
     // {
     //     $this->attributes['name'] = $value . " " . $this->attributes['surname'];
     // }
+    public function getCreatedAtAttribute($value)
+    {
+        $this->attributes['created_at'] = Date::M2J('Y-m-d', $value);
+        // dd($this->attributes);
+    }
 }
