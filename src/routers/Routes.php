@@ -26,6 +26,7 @@ class Routes
         $this->router->setNamespace(CONTROLLER_NAMESPACE);
         $this->router->get('/', 'site\HomeController@home');
         $this->router->post('/consult/', 'site\HomeController@consult');
+        $this->router->get('/landing/{address}/', 'site\LandingController@landing');
 
         $this->router->get('/sachadmin/field/list/', 'admin\FieldController@list');
         $this->router->post('/sachadmin/field/create/', 'admin\FieldController@create');
