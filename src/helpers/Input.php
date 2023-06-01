@@ -31,6 +31,7 @@ class Input
     public static function getDataJson($wantArray = true)
     {
         $json = file_get_contents('php://input');
+        // dd($json);
         if ($wantArray) {
             return json_decode($json, true);
         }

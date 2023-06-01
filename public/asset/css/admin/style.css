@@ -302,3 +302,59 @@ a:hover{
   text-align: center;
 }
 /* end-popup */
+
+.rowOptions {
+  position: relative;
+}
+
+.manageInput {
+  width: 100%;
+  padding: 20px 25px 1px 25px !important;
+}
+
+.manageFormSubmit {
+  display: block;
+  margin:auto
+}
+
+.manageTitle{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.manageCheckBox {
+    width: 100%;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+.manageSpan {
+  position: absolute;
+  top: -5px;
+  right: 5%;
+  background: var(--background-main);
+  color: var(--background-support);
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 11px;
+  padding: 9px 16px;
+  z-index: 4;
+}
+
+.rowDivide .manageSpan {
+  position: absolute;
+  top: -12px;
+  right: 10%;
+  font-size: 13px;
+  line-height: 11px;
+  padding: 9px 16px;
+}
+
+.manageCheckBox .manageSpan {
+  position: absolute;
+  top: -20px;
+  right: 10%;
+  font-size: 13px;
+  padding: 9px 16px;
+}

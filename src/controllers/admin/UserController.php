@@ -4,6 +4,7 @@ namespace App\Controllers\Admin;
 
 use App\Classes\Date;
 use App\Classes\Response;
+use App\Classes\Session;
 use App\Controllers\Refrence\AdminRefrenceController;
 use App\Helpers\Input;
 use App\Helpers\Tools;
@@ -47,26 +48,32 @@ class UserController extends AdminRefrenceController
 
     public function update($id)
     {
-        $data = Input::getDataJson();
+        $data = Input::getDataForm();
         $checkError = $this->checkValidation($data, [
             'name'    => 'required',
             'surname' => 'required',
-            'mobile'  => 'required|min:11',
-            'field'   => 'required',
+            'mobile'  => 'required|min:11'
         ]);
         if ($checkError['error']) {
-            Response::setStatus(402, 'error in input data');
+            // Response::setStatus(402, 'error in input data');
+            $session = new Session();
+            $session->setFlash('name', $data['name'])->setFlash('surname', $data['surname'])->
+            setFlash('description', $data['description'])->setFlash('adminDescription', $data['adminDescription'])->
+            setFlash('mobile', $data['mobile'])->setFlash('error', SESSION_ERROR);
+            Tools::redirect(ADMIN_ORIGIN . $this->data['form']['page'] . '/edit/' . $id . "/");
         }
         $res = User::where('id', '=', $id)->update([
             'name' => $data['name'],
             'surname' => $data['surname'],
             'mobile' => $data['mobile'],
-            'field' => $data['field'],
             'description' => $data['description'],
             'adminDescription' => $data['adminDescription'],
             'updated_at' => Date::now()
         ]);
-        ($res) ? Response::setStatus(200, 'updated successfully'): Response::setStatus(500, 'error in update query');
+        // ($res) ? Response::setStatus(200, 'updated successfully'): Response::setStatus(500, 'error in update query');
+        $session = new Session();
+        ($res) ? $session->setFlash('done', SESSION_DONE) : $session->setFlash('error', SESSION_ERROR);
+        Tools::redirect(ADMIN_ORIGIN . $this->data['form']['page'] . '/list/');
     }
 
     public function destroy($id)
@@ -77,9 +84,10 @@ class UserController extends AdminRefrenceController
 
     public function edit($id)
     {
-        $res = User::where('id', '=', $id)->get();
+        $res = User::where('id', '=', $id)->first();
         $this->data['form']['result'] = $res;
-        Response::setStatus(200, 'found succrssfully', $res);
+        $this->data['form']['actionUrl'] = ADMIN_ORIGIN . $this->data['form']['page'] . '/update/' . $id . '/';
+        // Response::setStatus(200, 'found succrssfully', $res);
         Tools::render('admin\user\manage', $this->data);
     }
 

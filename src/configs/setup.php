@@ -7,7 +7,7 @@ define('HOST_NAME', $_ENV['HOST_NAME']);
 define('DOMAIN', "http://localhost/");
 define('DRIVER', $_ENV['DRIVER']);
 define('ORIGIN', 'http://localhost:' . PORT . '/');
-define('ADMIN_ORIGIN', 'http://localhost:' . PORT . '/sachadmin');
+define('ADMIN_ORIGIN', 'http://localhost:' . PORT . '/sachadmin/');
 define('LIMIT', 1);
 
 define('DB_NAME', $_ENV['DB_NAME']);
@@ -40,6 +40,9 @@ define("CONTROLLER_NAMESPACE", "App\Controllers");
 define("Router_NAMESPACE", "App\Routers" . NAMESPACE_SEPRATOR);
 define("Policy_NAMESPACE", "App\Policies" . NAMESPACE_SEPRATOR);
 define("MIDDLEWARE_NAMESPACE", "App\MiddleWares" . NAMESPACE_SEPRATOR);
+
+define('SESSION_DONE', 'با موفقیت انجام شد');
+define('SESSION_ERROR', 'خطا در انجام عملیات');
 
 // ./vendor/bin/phpcs  --standard=phpcs.xml src\ phpcs check error. to solve errors use phpcbf
 require LIBRARY . 'Function.php';

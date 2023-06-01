@@ -17,6 +17,7 @@ class Session
     public function set($key, $val)
     {
         $_SESSION[$key] = $val;
+        return $this;
     }
 
     public function delete($key)

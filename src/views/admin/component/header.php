@@ -9,13 +9,13 @@ $session = new Session();?>
 <?php $error = $session->getFlash('error') ?>
 <?php $done = $session->getFlash('done') ?>
 <?php if ($error != "") { ?>
-    <p class="bg-danger text-center session"><?php echo $error ?></p>
+    <p class="bg-danger text-center session gapBetween"><?php echo $error ?></p>
 <?php } ?>
 <?php if ($warning != "") { ?>
-    <p class="bg-warning text-center session"><?php echo $warning ?></p>
+    <p class="bg-warning text-center session gapBetween"><?php echo $warning ?></p>
 <?php } ?>
 <?php if ($done != "") { ?>
-    <p class="bg-success text-center session"><?php echo $done ?></p>
+    <p class="bg-success text-center session gapBetween"><?php echo $done ?></p>
 <?php } ?>
 <div class="pageToolBox gapBetween">
     <form class="search" action="./">
