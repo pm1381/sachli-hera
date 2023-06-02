@@ -20,7 +20,7 @@ class Routes
         $this->router->before('GET|POST', '/.*', function(){
             // header('Content-Type: application/json; charset=utf-8');
             // header('Content-Type: application/x-www-form-urlencoded');
-            Log::insert();
+            // Log::insert();
         });
 
         $this->router->setNamespace(CONTROLLER_NAMESPACE);
@@ -46,6 +46,11 @@ class Routes
         $this->router->post('/sachadmin/landing/destroy/{id}/', 'admin\LandingController@destroy');
         $this->router->get('/sachadmin/landing/show/', 'admin\LandingController@show');
         $this->router->get('/sachadmin/landing/edit/{id}/', 'admin\LandingController@edit');
+        $this->router->get('/sachadmin/landing/showUploadImage/{id}/', 'admin\LandingController@showUploadImage');
+        $this->router->post('/sachadmin/landing/imageUpdate/{id}/', 'admin\LandingController@imageUpdate');
+
+        
+        $this->router->post('/sachadmin/api/image/', 'admin\ApiController@image');
         
     }
 }

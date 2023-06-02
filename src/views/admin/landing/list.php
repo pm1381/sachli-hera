@@ -30,6 +30,7 @@ use App\Helpers\Tools;
                                 <button class="ml-1 btn btn-danger">حذف</button>
                             </form>
                             <a class="ml-1 manageActions" href="/sachadmin/landing/edit/<?php echo $value->id ?>/">مدیریت</a>
+                            <a class="ml-1 btn btn-light" href="/sachadmin/landing/showUploadImage/<?php echo $value->id ?>/">آپلود عکس</a>
                         </td>
                     </tr>
                 <?php } ?>

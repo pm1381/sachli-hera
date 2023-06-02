@@ -86,10 +86,28 @@ class LandingController extends AdminRefrenceController
         Response::setStatus(200, 'deleted successfully');
     }
 
+    public function imageUpdate($id)
+    {
+        $res = Landing::where('id', '=', $id)->update([
+            'updated_at' => Date::now()
+        ]);
+        $session = new Session();
+        ($res) ? $session->setFlash('done', SESSION_DONE) : $session->setFlash('error', SESSION_ERROR);
+        Tools::redirect(ADMIN_ORIGIN . $this->data['form']['page'] . '/list/');
+    }
+
     public function show()
     {
         $this->data['form']['actionUrl'] = ADMIN_ORIGIN . $this->data['form']['page'] . '/create/';
         Tools::render('admin\landing\manage', $this->data);
+    }
+
+    public function showUploadImage($id)
+    {
+        $res = Landing::where('id', '=', $id)->first();
+        $this->data['form']['result'] = $res;
+        $this->data['form']['actionUrl'] = ADMIN_ORIGIN . $this->data['form']['page'] . '/imageUpdate/' . $id . "/";
+        Tools::render('admin\landing\image', $this->data);
     }
 
     public function edit($id)
