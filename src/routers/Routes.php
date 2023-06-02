@@ -40,6 +40,11 @@ class Routes
         $this->router->get('/sachadmin/user/edit/{id}/', 'admin\UserController@edit');
         $this->router->post('/sachadmin/user/destroy/{id}/', 'admin\UserController@destroy');
 
+        $this->router->get('/sachadmin/home/edit/', 'admin\HomeController@edit');
+        $this->router->post('/sachadmin/home/update/', 'admin\HomeController@update');
+        $this->router->get('/sachadmin/home/showUploadImage/', 'admin\HomeController@showUploadImage');
+        $this->router->post('/sachadmin/landing/imageUpdate/', 'admin\HomeController@imageUpdate');
+
         $this->router->get('/sachadmin/landing/list/', 'admin\LandingController@list');
         $this->router->post('/sachadmin/landing/create/', 'admin\LandingController@create');
         $this->router->post('/sachadmin/landing/update/{id}/', 'admin\LandingController@update');

@@ -70,7 +70,6 @@ class LandingController extends AdminRefrenceController
         $res = Landing::where('id', '=', $id)->update([
             'title' => $data['title'],
             'description' => $data['description'],
-            'created_at' => Date::now(),
             'updated_at' => Date::now(),
             'address' => $data['address']
         ]);
