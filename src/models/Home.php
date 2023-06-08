@@ -8,7 +8,7 @@ use Illuminate\Database\Capsule\Manager as DB;
 
 class Home extends BaseModel
 {
-    protected $fillable = ['heroText', 'sampleText', 'footerText', 'articleText', 'address', 'mobile', 'created_at', 'updated_at'];
+    protected $fillable = ['heroText', 'sampleText', 'footerText', 'articleText', 'address', 'mobile', 'updated_at'];
     public $timestamps = false;
     //social links, footer links, map preview
 

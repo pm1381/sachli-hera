@@ -16,7 +16,7 @@
 }
 
 body{
-  background-color: #aaa;
+  background-color: #aaa !important;
 }
 
 h3{

@@ -18,15 +18,18 @@ $session = new Session();?>
     <p class="bg-success text-center session gapBetween"><?php echo $done ?></p>
 <?php } ?>
 <div class="pageToolBox gapBetween">
-    <form class="search" action="./">
-        <input name="search" class="searchInput" type="text" placeholder="جستجو .." value="<?php echo Input::get('search'); ?>" />
-        <input type="submit" class="effect searchIcon" value="" />
-    </form>
+    <?php if ($data->form->page != "home") { ?>
+        <form class="search" action="./">
+            <input name="search" class="searchInput" type="text" placeholder="جستجو .." value="<?php echo Input::get('search'); ?>" />
+            <input type="submit" class="effect searchIcon" value="" />
+        </form>
+    <?php } ?>
     <div class="headerButtons">
         <?php if ($data->form->page == 'user') { ?>
             <div class="btn btn-light new headerFilter">فیلتر</div>
-        <?php } ?>
-        <?php if ($data->form->page != 'user') { ?>
+        <?php } elseif ($data->form->page == 'home') { ?>
+            <a href="/sachadmin/<?php echo $data->form->page . "/showUploadImage/" ?>" class="btn btn-light new">آپلود عکس</a>
+        <?php } else { ?>
             <a href="/sachadmin/<?php echo $data->form->page . "/show/" ?>" class="btn btn-light new">ساخت جدید</a>
         <?php } ?>
     </div>

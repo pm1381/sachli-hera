@@ -25,6 +25,21 @@ function uploadFile(id) {
 //   ajax.send(JSON.stringify(formdata));
 }
 
+function homeuploadFile(number) {
+  var file = this.files[0];
+  var name = this.getAttribute('data-name');
+  var formdata = new FormData();
+  formdata.append("file", file);
+  formdata.append("name", name);
+  formdata.append("number", number);
+  var ajax = new XMLHttpRequest();
+  ajax.upload.addEventListener("progress", progressHandler.bind(null, this), false);
+  ajax.addEventListener("load", completeHandler.bind(null, this), false);
+  ajax.addEventListener("error", errorHandler.bind(null, this), false);
+  ajax.open("POST", adminAddress + 'api/homeImage/', true);
+  ajax.send((formdata));
+}
+
 function progressHandler(el, event) {
     var form = el.closest('#upload_form');
     var status = form.querySelector('#status');

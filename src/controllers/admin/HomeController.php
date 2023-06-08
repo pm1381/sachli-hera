@@ -16,7 +16,6 @@ class HomeController extends AdminRefrenceController
         $res = Home::first();
         $this->data['form']['result'] = $res;
         $this->data['form']['actionUrl'] = ADMIN_ORIGIN . $this->data['form']['page'] . '/update/';
-        $this->data['form']['image'] = ADMIN_ORIGIN . $this->data['form']['page'] . '/update/';
         Tools::render('admin\home\manage', $this->data);
     }
 
@@ -35,7 +34,8 @@ class HomeController extends AdminRefrenceController
             'sampleText' => $data['sampleText'],
             'updated_at' => Date::now(),
             'address' => $data['address'],
-            'mobile' => $data['mobile']
+            'mobile' => $data['mobile'],
+            'articleText' => $data['articleText']
         ]);
         $session = new Session();
         ($res) ? $session->setFlash('done', SESSION_DONE) : $session->setFlash('error', SESSION_ERROR);

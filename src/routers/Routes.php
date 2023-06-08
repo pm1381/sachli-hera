@@ -17,10 +17,8 @@ class Routes
     {
         //general middlewares
         $this->router->setNamespace(MIDDLEWARE_NAMESPACE);
-        $this->router->before('GET|POST', '/.*', function(){
-            // header('Content-Type: application/json; charset=utf-8');
-            // header('Content-Type: application/x-www-form-urlencoded');
-            // Log::insert();
+        $this->router->before('POST', '/.*', function(){
+            Log::insert();
         });
 
         $this->router->setNamespace(CONTROLLER_NAMESPACE);
@@ -43,7 +41,7 @@ class Routes
         $this->router->get('/sachadmin/home/edit/', 'admin\HomeController@edit');
         $this->router->post('/sachadmin/home/update/', 'admin\HomeController@update');
         $this->router->get('/sachadmin/home/showUploadImage/', 'admin\HomeController@showUploadImage');
-        $this->router->post('/sachadmin/landing/imageUpdate/', 'admin\HomeController@imageUpdate');
+        $this->router->post('/sachadmin/home/imageUpdate/', 'admin\HomeController@imageUpdate');
 
         $this->router->get('/sachadmin/landing/list/', 'admin\LandingController@list');
         $this->router->post('/sachadmin/landing/create/', 'admin\LandingController@create');
@@ -56,6 +54,7 @@ class Routes
 
         
         $this->router->post('/sachadmin/api/image/', 'admin\ApiController@image');
+        $this->router->post('/sachadmin/api/homeImage/', 'admin\ApiController@homeImage');
         
     }
 }
