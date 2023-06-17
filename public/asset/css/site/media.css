@@ -1,0 +1,221 @@
+@media(max-width : 973px){
+    .homeHero .title h1{
+        white-space: nowrap;
+    }
+
+    .homeHero .hT1{
+        width: 55%;
+    }
+
+    .contactData{
+        width: 55%;
+    }
+
+    .contactData p{
+        white-space: nowrap;
+    }
+}
+
+@media(max-width : 825px){
+    #hera{
+        white-space: nowrap;
+    }
+
+    .side img{
+        height: 30%;
+    }
+
+    .homeHero .hT2{
+        width: 45%;
+    }
+}
+
+@media(max-width : 740px){
+    .homeHero{
+        flex-direction: column;
+    }
+
+    .homeHero .hT1{
+        width: 100%;
+    }
+
+    .homeHero .hT1 .buttons {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+        margin-top: 35px;
+        margin-bottom: 35px;
+    }
+
+    .homeHero .hT2{
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .homeHero .hT2 .side{
+        width: 45%;
+    }
+
+    .side img{
+        height: 75%;
+    }
+
+    .consultForm{
+        justify-content: normal;
+        align-items: normal;
+        padding: 2em 4em;
+        height: 100vh;
+    }
+
+    .formContent{
+        width: 100%;
+    }
+
+    .manageActions{
+        width: 50%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .contactUs{
+        padding: 1em 2em;
+    }
+
+    .contactData{
+        width: 65%;
+    }
+
+    .footer{
+        padding: 1em 3em;
+        height: auto;
+        width: 100%;
+    }
+
+    #hera{
+        font-size: 11px;
+    }
+
+    .slick-slider{
+        padding: 1.5em 3em;
+    }
+}
+
+@media(max-width : 740px){
+    .sample{
+        padding: 2em 5em;
+    }
+}
+
+@media(max-width : 550px){
+    .sample{
+        padding: 2em 4em;
+    }
+
+    #map{
+        display: none;
+    }
+
+    .contactData{
+        width: 100%;
+    }
+
+    .innerFlex, .contact-title{
+        width: 100%;
+    }
+
+    .contact-title{
+        text-align: center;
+    }
+}
+
+@media (max-width : 500px) {
+    .main{
+        height: auto;
+    }
+
+    .videoMain{
+        height: 45vh;
+    }
+
+    .single-item{
+        padding: 5px 15px;
+    }
+
+    .sample, .homeHero{
+        padding: 1em 3em;
+    }
+
+    .formContent{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .formText{
+        height: 200px;
+    }
+
+    .formInputs{
+        width: 100%;
+    }
+
+    .formContent .righty{
+        margin: 0;
+    }
+
+    .formContent .lefty{
+        margin: 0;
+    }
+
+    .contactUs, .footer{
+        display: none;
+    }
+
+    .footer2{
+        background-image: url('./../../images/hashoor.png');
+        background-size: cover;
+        box-shadow: inset -2px 0px 4px rgba(0, 0, 0, 0.6);
+        background-color: #000;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 0;
+        width: 100%;
+        padding: 1em 3em;
+    }
+}
+
+@media (max-width : 470px) {
+    .homeHero, .consultForm, .sample, .footer2{
+        padding: 1em 1em;
+    }
+
+    .homeHero .title h1{
+        text-align: center;
+    }
+    
+    .sample{
+        height: auto;
+    }
+
+    .sample .images img{
+        max-width: 100%;
+        border-radius: 10px;
+    }
+}
+
+@media(max-width: 370px){
+    h1{
+        font-size: 2em;
+    }
+    h2{
+        font-size: 1.5em;
+    }
+
+    .videoMain{
+        height: 30vh;
+    }
+}

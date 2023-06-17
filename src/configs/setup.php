@@ -35,6 +35,7 @@ define('VIEW', SRC . 'views' . DIRECTORY_SEPARATOR);
 define('SITE_VIEW', VIEW . 'site' . DIRECTORY_SEPARATOR);
 define('ADMIN_VIEW', VIEW . 'admin' . DIRECTORY_SEPARATOR);
 define('COMPONENT', ADMIN_VIEW . 'component' . DIRECTORY_SEPARATOR);
+define('SITE_COMPONENT', SITE_VIEW . 'component' . DIRECTORY_SEPARATOR);
 define('POPUP', ADMIN_VIEW . 'popup' . DIRECTORY_SEPARATOR);
 define("CONTROLLER_NAMESPACE", "App\Controllers");
 define("Router_NAMESPACE", "App\Routers" . NAMESPACE_SEPRATOR);

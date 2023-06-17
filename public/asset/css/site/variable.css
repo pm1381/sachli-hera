@@ -1,0 +1,20 @@
+:root {
+  --live-indicator-shadow: hsla(0, 79%, 63%, 0.5);
+  --black:       black;
+  --gold:    gold;
+  --light-white:    #eeeeee;
+
+  --ff-inter: "Inter", sans-serif;
+
+  --section-heading: 40px;
+  --fs-lg:           22px;
+  --fs-md:           17px;
+  --fs-sm:           14px;
+  --fs-x-sm:         12px;
+  
+  --fw-7: 700;
+  --fw-6: 600;
+  --fw-5: 500;
+
+  --px: 120px; /* padding-left & padding-right */
+}
