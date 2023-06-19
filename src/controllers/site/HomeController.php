@@ -7,12 +7,15 @@ use App\Classes\Response;
 use App\Controllers\Refrence\SiteRefrenceController;
 use App\Helpers\Input;
 use App\Helpers\Tools;
+use App\Models\Home;
 use App\Models\User;
 
 class HomeController extends SiteRefrenceController
 {
     public function home()
     {
+        $res = Home::first();
+        $this->data['form']['result'] = $res;
         Tools::render('site\home\index', $this->data);
     }
 

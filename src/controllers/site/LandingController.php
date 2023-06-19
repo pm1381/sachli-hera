@@ -13,10 +13,10 @@ class LandingController extends SiteRefrenceController
     {
         $res = Landing::where('address', '=', $address)->limit(1)->get();
         if (count($res)) {
-            $this->data['form']['result'] = $res;
-            Response::setStatus(200, 'page founded', $res);
+            $this->data['form']['result'] = $res[0];
             Tools::render('site\landing\index', $this->data);
+        } else {
+            Response::setStatus(404, 'page not founded');
         }
-        Response::setStatus(404, 'page not founded');
     }
 }
