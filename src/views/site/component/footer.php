@@ -2,11 +2,11 @@
 
 ?>
 
-<footer class="footer gapBetween mx-auto">    
+<footer class="footer gapBetween mx-auto eachSec">    
     <div class="cols">
         <div class="describe x1">
             <h2>کلینیک ساچلی</h2>
-            <p>کلینیک تخصصی کاشت مو و ابرو ساچلی از سال 1390 در محدوده سعادت‌آباد تهران در زمینه کاشت تخصصی و حرفه‌ای مو و ابرو شروع به فعالیت نمود.</p>
+            <p><?php echo $data->form->result->footerText ?></p>
         </div>
         <div class="links x1">
             <div class="eachLink">

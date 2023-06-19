@@ -26,7 +26,7 @@
                 </linearGradient>
                 </defs>
             </svg>
-            <p>آدرس: تهران، سعادت‌آباد، خیابان گلبان</p>
+            <p>آدرس: <?php echo $data->form->result->address ?></p>
         </div>
         <div class="number innerFlex">
             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
@@ -49,7 +49,7 @@
                 </linearGradient>
                 </defs>
             </svg>
-            <p>شماره تماس: 125 9004 0912</p>
+            <p>شماره تماس: <?php echo $data->form->result->mobile ?></p>
         </div>
         <div class="links innerFlex">
             <a href="./"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">

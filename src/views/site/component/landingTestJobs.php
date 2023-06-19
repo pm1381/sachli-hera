@@ -2,13 +2,10 @@
 
 ?>
 
-<div class="main landingTest gapBetween mx-auto">
+<div class="main landingTest gapBetween mx-auto eachSec">
     <div class="heroImage">
-        <img src="<?php echo ORIGIN . "public/asset/images/women-test.jpg" ?>">
-        <img src="<?php echo ORIGIN . "public/asset/images/women-test.jpg" ?>">
-        <img src="<?php echo ORIGIN . "public/asset/images/women-test.jpg" ?>">
-        <img src="<?php echo ORIGIN . "public/asset/images/women-test.jpg" ?>">
-        <img src="<?php echo ORIGIN . "public/asset/images/women-test.jpg" ?>">
-        <img src="<?php echo ORIGIN . "public/asset/images/women-test.jpg" ?>">
+        <?php for ($i=1; $i <= 6; $i++) { ?>
+            <img src="<?php echo ORIGIN . "public/upload/landing/support_" . $data->form->result->id . "_" . $i . ".jpg" ?>">    
+        <?php } ?>
     </div>
 </div>

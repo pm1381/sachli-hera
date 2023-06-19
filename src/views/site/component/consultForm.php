@@ -2,7 +2,7 @@
 
 ?>
 
-<form method="POST" id="FreeConsult-landing" action="./" class="main consultForm gapBetween mx-auto">
+<form method="POST" id="formContent" action="<?php echo ORIGIN . "consult/" ?>" class="main consultForm gapBetween mx-auto eachSec">
     <h2 class="hClass">فرم مشاوره رایگان</h2>
     <div class="formContent">
         <div class="formInputs righty">

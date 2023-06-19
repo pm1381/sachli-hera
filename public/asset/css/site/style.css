@@ -36,6 +36,12 @@ label{
   color: var(--black);
   border-top-left-radius: 10px;
   padding: 0.5em 1.5em;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.freeConsultBtn:checked{
+  color: aqua;
 }
 
 .reserve{

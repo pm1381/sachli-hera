@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html">
 <head>
     <?php $v = "?v=" . 0.4 ?>
     <meta charset="UTF-8">
@@ -16,10 +16,10 @@
     <link rel="stylesheet" href="<?php echo ORIGIN . "public/asset/js/slick/slick.css" . $v ?>">
     <link rel="stylesheet" href="<?php echo ORIGIN . "public/asset/css/site/style.css" . $v ?>">
     <link rel="stylesheet" href="<?php echo ORIGIN . "public/asset/css/site/media.css" . $v ?>">
+    <script src="<?php echo ORIGIN . 'public/asset/js/site/function.js' . $v ?>" defer></script>
     <script src="<?php echo ORIGIN . 'public/asset/js/site/action.js' . $v ?>"></script>
-    <script src="<?php echo ORIGIN . 'public/asset/js/site/function.js' . $v ?>"></script>
 </head>
 
-<body>
+<body id="body">
 
 <?php require_once POPUP . 'loading.php' ?>

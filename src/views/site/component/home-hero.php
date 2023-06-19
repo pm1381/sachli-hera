@@ -2,29 +2,29 @@
 
 ?>
 
-<div class="main homeHero gapBetween mx-auto">
+<div class="main homeHero gapBetween mx-auto eachSec">
     <div class="heroData hT1 my-auto">
         <div class="title">
             <h1>کلینیک زیبایی ساچلی</h1>
         </div>
         <div class="description">
-            <p>با گذشت نزدیک به 10 سال از تاسیس کلینیک زیبایی ساچلی، مفتخریم که اعلام کنیم تا کنون تمامی مشتریان راضی بودند.</p>
+            <p><?php echo $data->form->result->heroText ?></p>
         </div>
         <div class="buttons">
             <a href="" class="reserve">رزرو نوبت</a>
-            <a href="#FreeConsult-landing" class="freeConsultBtn">مشاوره رایگان</a>
+            <div class="freeConsultBtn" id="consultBtn">مشاوره رایگان</div>
         </div>
     </div>
-    <div class="hT2 images">
+    <div class="hT2 images" id="hero-innerScroll">
         <div class="right-side side">
-            <img src="<?php echo ORIGIN . "public/asset/images/la2.jpg" ?>">
-            <img src="<?php echo ORIGIN . "public/asset/images/la1.jpg" ?>">
-            <img src="<?php echo ORIGIN . "public/asset/images/la2.jpg" ?>">
+            <?php for ($i=1; $i <= 3; $i++) {  ?>
+                <img src="<?php echo ORIGIN . "public/upload/home/hero/image_" . $i . ".jpg" ?>">    
+            <?php } ?>
         </div>
         <div class="left-side side">
-            <img src="<?php echo ORIGIN . "public/asset/images/la1.jpg" ?>">
-            <img src="<?php echo ORIGIN . "public/asset/images/la2.jpg" ?>">
-            <img src="<?php echo ORIGIN . "public/asset/images/la1.jpg" ?>">
+            <?php for ($i=4; $i <= 6; $i++) {  ?>
+                <img src="<?php echo ORIGIN . "public/upload/home/hero/image_" . $i . ".jpg" ?>">    
+            <?php } ?>
         </div>
     </div>
 </div>

@@ -1,3 +1,12 @@
+@media(max-width: 1000px){
+    .landingTest{
+        height: auto;
+    }
+    .landingTest img{
+        width: 45%;
+    }
+}
+
 @media(max-width : 973px){
     .homeHero .title h1{
         white-space: nowrap;
@@ -27,6 +36,13 @@
 
     .homeHero .hT2{
         width: 45%;
+    }
+}
+
+@media(max-width : 800px) {
+    .video-svg{
+        width: 25px;
+        height: 25px;
     }
 }
 
@@ -130,6 +146,32 @@
     }
 }
 
+@media(max-width: 700px) {
+    .landingHero{
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: auto ;
+        background-image: url(./../../images/hashoor.png);
+        background-size: cover;
+        box-shadow: inset -2px 0px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .landing-ht{
+        margin: 0 !important;
+        width: 100% !important;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .landingHero .buttons{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+}
+
 @media (max-width : 500px) {
     .main{
         height: auto;
@@ -189,7 +231,7 @@
 }
 
 @media (max-width : 470px) {
-    .homeHero, .consultForm, .sample, .footer2{
+    .homeHero, landingHero, .consultForm, .sample, .footer2, .landingTest{
         padding: 1em 1em;
     }
 

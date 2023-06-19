@@ -24,7 +24,7 @@ use App\Helpers\Tools;
                     <tr class="">
                         <td class="rowOptions counter"><?php echo $i ?></td>
                         <td class="rowOptions"><?php echo $value->title ?></td>
-                        <td class="rowOptions"><a href="<?php echo ORIGIN .  $value->address . "/" ?>"><?php echo $value->address ?></a></td>
+                        <td class="rowOptions"><a href="<?php echo ORIGIN . "landing/" .  $value->address . "/" ?>"><?php echo $value->address ?></a></td>
                         <td class="rowOptions d-flex">
                             <form method="POST" action="/sachadmin/landing/destroy/<?php echo $value->id ?>/">
                                 <button class="ml-1 btn btn-danger">حذف</button>

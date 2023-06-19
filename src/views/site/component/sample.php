@@ -1,16 +1,13 @@
 <?php ?>
-<div class="sample gapBetween mx-auto">
+<div class="sample gapBetween mx-auto eachSec">
     <div class="curtain"></div>
     <h2 class="title">نمونه کارهای ساچلی</h2>
     <div class="description">
-        با گذشت نزدیک به 10 سال از تاسیس کلینیک زیبایی ساچلی، مفتخریم که اعلام کنیم تا کنون تمامی مشتریان راضی بودند. با گذشت نزدیک به 10 سال از تاسیس کلینیک زیبایی ساچلی، مفتخریم که اعلام کنیم تا کنون تمامی مشتریان راضی بودند.با گذشت نزدیک به 10 سال از تاسیس کلینیک زیبایی ساچلی، مفتخریم که اعلام کنیم تا کنون تمامی مشتریان راضی بودند.
+        <?php echo $data->form->result->sampleText ?>
     </div>
-    <div class="images">
-        <img src="<?php echo ORIGIN . "public/asset/images/la1.jpg" ?>">
-        <img src="<?php echo ORIGIN . "public/asset/images/la2.jpg" ?>">
-        <img src="<?php echo ORIGIN . "public/asset/images/la1.jpg" ?>">
-        <img src="<?php echo ORIGIN . "public/asset/images/la2.jpg" ?>">
-        <img src="<?php echo ORIGIN . "public/asset/images/la1.jpg" ?>">
-        <img src="<?php echo ORIGIN . "public/asset/images/la2.jpg" ?>">
+    <div class="images" id="sample-innerScroll">
+        <?php for ($i=1; $i <= 6; $i++) {  ?>
+            <img src="<?php echo ORIGIN . "public/upload/home/sample/image_" . $i . ".jpg" ?>">    
+        <?php } ?>
     </div>
 </div>
