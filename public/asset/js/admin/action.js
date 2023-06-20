@@ -1,5 +1,5 @@
 jQuery(function () {
-    $('.loadingPopup').css('bottom', '-100%');
+    swal.close();
     $('body').css('opacity', 1);
 
     $(document).on("change", ".selectChange", function () {

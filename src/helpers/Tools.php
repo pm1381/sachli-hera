@@ -227,12 +227,12 @@ class Tools
                 if ($key == $selected) {
                     $get = 'selected';
                 }
-                $list .= '<option class="optionData" data-name="' . $value['title'] . '" value="' . $value['id'] . '" ' . $get . '>' . $value['title'] . '</option>';
+                $list .= '<option class="optionData t1" data-name="' . $value['title'] . '" value="' . $value['id'] . '" ' . $get . '>' . $value['title'] . '</option>';
             } else {
                 if ($value == $selected) {
                     $get = 'selected';
                 }
-                $list .= '<option class="optionData" data-name="' . $value . '" value="' . $value . '" ' . $get . '>' . $value . '</option>';
+                $list .= '<option class="optionData t2" data-name="' . $value . '" value="' . $value . '" ' . $get . '>' . $value . '</option>';
             }
         }
         return $list;

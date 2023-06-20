@@ -56,6 +56,37 @@ use App\Helpers\Tools;
                 </tr>
                 <tr>
                     <td class="rowOptions">
+                        <?php foreach ($v->video as $k => $v1) { ?>
+                            <input name="videos[]" class="manageInput" style="width:50%;margin:auto" value="<?php echo $v1->link ?>">
+                        <?php } ?>
+                        <?php for ($i=1; $i <= 4 - count($v->video); $i++) {  ?>
+                            <input name="videos[]" class="manageInput" style="width:50%;margin:auto">
+                        <?php } ?>
+                        <span class="manageSpan">ویدیوها</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="rowOptions d-flex align-items-center justify-content-between">
+                        <div class="eachFooter">
+                            <?php //dd($v->result) ?>
+                            <?php foreach ($v->result->footer as $key => $value) { ?>
+                                <div class="linkData d-flex flex-direction-row">
+                                    <input name="footerLink[]" class="manageInput" placeholder="لینک .." value="<?php echo $value->link ?>">
+                                    <input name="footerTitle[]" class="manageInput" placeholder="عنوان .." value="<?php echo $value->title ?>">
+                                </div>
+                            <?php } ?>
+                            <?php for ($i=1; $i <= 5 - count($v->result->footer) ; $i++) {  ?>
+                                <div class="linkData d-flex flex-direction-row">
+                                    <input name="footerLink[]" class="manageInput" placeholder="لینک ..">
+                                    <input name="footerTitle[]" class="manageInput" placeholder="عنوان ..">
+                                </div>
+                            <?php } ?>
+                        </div>
+                        <span class="manageSpan">لینکهای فوتر</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="rowOptions">
                         <textarea style="height: 200px;" name="articleText" class="manageInput"><?php echo Tools::checkObject($value, 'articleText', $session->getFlash('articleText')) ?></textarea>
                         <span class="manageSpan">متن مقاله</span>
                     </td>

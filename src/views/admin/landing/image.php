@@ -30,8 +30,8 @@ use App\Helpers\Tools;
                         <progress id="progressBar" value="0" max="100" style="width:300px;"></progress>
                         <p id="status"></p>
                         <p id="loaded_n_total"></p>
-                        <?php if (file_exists(UPLOAD . "landing/" . "main" . "_" . $value->id . "_" . '1' . ".jpeg")) { ?>
-                            <a class="showpic" href="<?php echo ORIGIN . 'public/upload/landing/main_' . $value->id . "_" . '1' . ".jpeg" ?>" target="__blank">مشاهده عکس</a>
+                        <?php if (file_exists(UPLOAD . "landing/" . "main" . "_" . $value->id . "_" . '1' . ".jpg")) { ?>
+                            <a class="showpic" href="<?php echo ORIGIN . 'public/upload/landing/main_' . $value->id . "_" . '1' . ".jpg" ?>" target="__blank">مشاهده عکس</a>
                         <?php } ?>
                     </form>
                 </td>
@@ -45,8 +45,8 @@ use App\Helpers\Tools;
                             <progress id="progressBar" value="0" max="100" style="width:300px;"></progress>
                             <p id="status"></p>
                             <p id="loaded_n_total"></p>
-                            <?php if (file_exists(UPLOAD . "landing/" . "support" . "_" . $value->id . "_" . $i . ".jpeg")) { ?>
-                                <a class="showpic" href="<?php echo ORIGIN . 'public/upload/landing/support_' . $value->id . "_" . $i . ".jpeg" ?>" target="__blank">مشاهده عکس</a>
+                            <?php if (file_exists(UPLOAD . "landing/" . "support" . "_" . $value->id . "_" . $i . ".jpg")) { ?>
+                                <a class="showpic" href="<?php echo ORIGIN . 'public/upload/landing/support_' . $value->id . "_" . $i . ".jpg" ?>" target="__blank">مشاهده عکس</a>
                             <?php } ?>
                         </form>
                 <?php } ?>

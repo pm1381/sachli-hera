@@ -18,7 +18,7 @@ class ApiController extends AdminRefrenceController
         if ($id != null && $file != null && $main != null && $number != null) {
             if ($file['type'] == 'image/jpeg') {
                 ($main) ? $type = 'main' : $type = 'support';
-                $destination = UPLOAD . "landing/" . $type . "_" . $id . "_" . $number . ".jpeg";
+                $destination = UPLOAD . "landing/" . $type . "_" . $id . "_" . $number . ".jpg";
                 $r = move_uploaded_file($file['tmp_name'], $destination);
                 if ($r) {
                     $data['error'] = false;
@@ -36,7 +36,7 @@ class ApiController extends AdminRefrenceController
         $name = Input::post('name', null);
         if ($file != null && $number != null && $name != null) {
             if ($file['type'] == 'image/jpeg') {
-                $destination = UPLOAD . "home/" . $name . "/" . "image_" . $number . ".jpeg";
+                $destination = UPLOAD . "home/" . $name . "/" . "image_" . $number . ".jpg";
                 $r = move_uploaded_file($file['tmp_name'], $destination);
                 if ($r) {
                     $data['error'] = false;

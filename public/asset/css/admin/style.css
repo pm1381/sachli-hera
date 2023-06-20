@@ -384,3 +384,13 @@ a:hover{
 #upload_form{
   margin-top: 10px;
 }
+
+.eachFooter{
+  width: 50%;
+  background-color: #aaa;
+}
+
+.eachFooter .footerTitle{
+  margin-bottom: 10px;
+  border: 1px solid var(--background-support);
+}

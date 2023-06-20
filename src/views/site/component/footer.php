@@ -1,5 +1,4 @@
 <?php
-
 ?>
 
 <footer class="footer gapBetween mx-auto eachSec">    
@@ -10,16 +9,16 @@
         </div>
         <div class="links x1">
             <div class="eachLink">
-                <div class="title">دسترسی سریع</div>
-                <a href="#" class="f1">تست</a>
-                <a href="#" class="f1">تست</a>
-                <a href="#" class="f1">تست</a>
+                <div class="title">پرطرفدار</div>
+                <?php foreach ($data->form->result->footer as $key => $value) { ?>
+                    <a href="<?php echo $value->link ?>" class="f1"><?php echo $value->title ?></a>
+                <?php } ?>
             </div>
             <div class="eachLink">
-                <div class="title">سایر لینکها</div>
-                <a href="#" class="f1">تست</a>
-                <a href="#" class="f1">تست</a>
-                <a href="#" class="f1">تست</a>
+                <div class="title">اخرین صفحات</div>
+                <?php foreach ($data->form->lastFive as $key => $value) { ?>
+                    <a href="<?php echo $value->address ?>" class="f1"><?php echo $value->title ?></a>
+                <?php } ?>
             </div>
         </div>
     </div>

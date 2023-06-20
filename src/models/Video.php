@@ -3,15 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Capsule\Manager as DB;
 
-class Landing extends BaseModel
+class Video extends BaseModel
 {
-    protected $fillable = ['address', 'title', 'description', 'created_at', 'active', 'updated_at'];
-    public $timestamps = false;
+    protected $fillable = ['link', 'updated_at'];
+    // public $timestamps = false;
 
     public function __construct()
     {
-        $this->table = 'landing';
+        $this->table = 'video';
         $this->primaryKey = 'id';
         Model::preventsSilentlyDiscardingAttributes(true);
     }

@@ -123,7 +123,7 @@
                 </linearGradient>
                 </defs>
             </svg>
-            <p>آدرس: تهران، سعادت‌آباد، خیابان گلبان</p>
+            <p>آدرس: <?php echo $data->form->result->address ?></p>
         </div>
         <div class="number">
             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
@@ -146,7 +146,7 @@
                 </linearGradient>
                 </defs>
             </svg>
-            <p>شماره تماس: 125 9004 0912</p>
+            <p>شماره تماس: <?php echo $data->form->result->mobile ?></p>
         </div>
         <div class="links">
             <a href="./"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
@@ -193,20 +193,20 @@
         <div class="cols">
         <div class="describe x1">
             <h2>کلینیک ساچلی</h2>
-            <p>کلینیک تخصصی کاشت مو و ابرو ساچلی از سال 1390 در محدوده سعادت‌آباد تهران در زمینه کاشت تخصصی و حرفه‌ای مو و ابرو شروع به فعالیت نمود.</p>
+            <p><?php echo $data->form->result->footerText ?></p>
         </div>
         <div class="links x1">
             <div class="eachLink">
-                <div class="title">دسترسی سریع</div>
-                <a href="#" class="f1">تست</a>
-                <a href="#" class="f1">تست</a>
-                <a href="#" class="f1">تست</a>
+                <div class="title">پرطرفدارها</div>
+                <?php foreach ($data->form->result->footer as $key => $value) { ?>
+                    <a href="<?php echo $value->link ?>" class="f1"><?php echo $value->title ?></a>
+                <?php } ?>
             </div>
             <div class="eachLink">
-                <div class="title">سایر لینکها</div>
-                <a href="#" class="f1">تست</a>
-                <a href="#" class="f1">تست</a>
-                <a href="#" class="f1">تست</a>
+                <div class="title">اخرین صفحات</div>
+                <?php foreach ($data->form->lastFive as $key => $value) { ?>
+                    <a href="<?php echo $value->address ?>" class="f1"><?php echo $value->title ?></a>
+                <?php } ?>
             </div>
         </div>
         <div id="hera">© کلیه حقوق مادی و معنوی برای کلینیک زیبایی ساچلی محفوظ است. | طراحی سایت: آژانس دیجیتال مارکتینگ هرا</div>

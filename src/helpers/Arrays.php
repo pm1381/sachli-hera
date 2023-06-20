@@ -28,7 +28,7 @@ class Arrays
             $res = $field->getFound();
             if (count($res)) {
                 foreach ($res as  $value) {
-                    self::$field[$value->id] = $value->title;
+                    self::$field[$value->id] = ['title' => $value->title, 'id' => $value->id];
                 }
             }
         }

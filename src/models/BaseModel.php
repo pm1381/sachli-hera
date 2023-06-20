@@ -72,7 +72,7 @@ class BaseModel extends Model
         return $this->data_pure(json_decode(html_entity_decode($res)));
     }
 
-    protected function data_pure($itemsCollection)
+    public function data_pure($itemsCollection)
     {
         $final = $itemsCollection;
         foreach ($final as $value) {
@@ -83,6 +83,9 @@ class BaseModel extends Model
             }
             if (Tools::checkObject($value, 'created_at')) {
                 $value->created_at = Date::M2J("Y-m-d", $value->created_at);
+            }
+            if (Tools::checkObject($value, 'footer')) {
+                $value->footer = json_decode($value->footer, JSON_UNESCAPED_UNICODE);
             }
             if (Tools::checkObject($value, 'description')) {
                 $value->description = html_entity_decode($value->description);

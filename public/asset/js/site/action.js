@@ -9,4 +9,44 @@ $(document).ready(function () {
         evt.preventDefault();
         $("#formContent")[0].scrollIntoView({behavior: 'smooth'});
     });
+
+    $('.send-req').on('click', function () {
+        var name = $('input[name="name"]').val();
+        var surname = $('input[name="surname"]').val();
+        var field = $('select[name="field"]').val();
+        var mobile = $('input[name="mobile"]').val();
+        var descripion = $('textarea[name="description"]').val();
+
+        var formData = new FormData();
+        formData.append("name", name);
+        formData.append("surname", surname);
+        formData.append("mobile", mobile);
+        formData.append("field", field);
+        formData.append("description", descripion);
+        $.ajax({
+            type: "post",
+            url: siteAddress + "api/consult/",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                if (response.error) {
+                Swal.fire({
+                    text: response.message,
+                    icon: "error",
+                    confirmButtonText: "باشه",
+                });
+                } else {
+                    Swal.fire({
+                        text: "درخواست شما ثبت شد. همکاران ما بزودی با شما تماس خواهند گرفت",
+                        icon: "success",
+                        confirmButtonText: "باشه",
+                    }).then((result) => {
+                        if (result.isConfirmed)
+                            location.reload();
+                    });
+                }
+            }
+        });
+    });
 });

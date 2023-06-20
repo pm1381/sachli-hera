@@ -8,9 +8,8 @@
             <h1><?php echo $data->form->result->title ?></h1>
         </div>
         <div class="description">
-            <!-- <p><?php echo $data->form->result->description ?></p> -->
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum esse, nihil id ipsam accusamus porro aspernatur placeat suscipit quaerat repellat voluptatum, commodi quidem, molestias optio. A doloribus impedit recusandae aspernatur.lorem</p>
-            <!-- <p>A doloribus impedit recusandae aspernatur.lorem</p> -->
+            <p><?php echo $data->form->result->description ?></p>
+            <!-- <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum esse, nihil id ipsam accusamus porro aspernatur placeat suscipit quaerat repellat voluptatum, commodi quidem, molestias optio. A doloribus impedit recusandae aspernatur.lorem</p> -->
         </div>
         <div class="buttons">
             <a href="" class="reserve">رزرو نوبت</a>

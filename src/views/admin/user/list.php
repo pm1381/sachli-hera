@@ -1,9 +1,6 @@
 <?php
 
-use App\Helpers\Arrays;
 use App\Helpers\Template;
-use App\Helpers\Tools;
-
 ?>
 
 <?php require_once COMPONENT . 'top.php'; ?>

@@ -28,7 +28,7 @@ $session = new Session();?>
         <?php if ($data->form->page == 'user') { ?>
             <div class="btn btn-light new headerFilter">فیلتر</div>
         <?php } elseif ($data->form->page == 'home') { ?>
-            <a href="/sachadmin/<?php echo $data->form->page . "/showUploadImage/" ?>" class="btn btn-light new">آپلود عکس</a>
+            <a href="/sachadmin/<?php echo $data->form->page . "/showUploadImage/" ?>" class="btn btn-light new">آپلود</a>
         <?php } else { ?>
             <a href="/sachadmin/<?php echo $data->form->page . "/show/" ?>" class="btn btn-light new">ساخت جدید</a>
         <?php } ?>

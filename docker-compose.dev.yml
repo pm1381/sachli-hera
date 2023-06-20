@@ -17,6 +17,7 @@ services:
       PASSWORD: ${PASSWORD}
       DB_NAME: ${DB_NAME}
       LIMIT: ${LIMIT}
+      UPLOAD_LIMIT: 128M
 
   mariadb:
     container_name: 'sachli-mariadb'

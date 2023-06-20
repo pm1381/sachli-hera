@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="<?php echo ORIGIN . "public/asset/css/site/media.css" . $v ?>">
     <script src="<?php echo ORIGIN . 'public/asset/js/site/function.js' . $v ?>" defer></script>
     <script src="<?php echo ORIGIN . 'public/asset/js/site/action.js' . $v ?>"></script>
+
+    <script>
+        const siteAddress = <?php echo "'" . ORIGIN . "'" ?>;
+        const adminAddress = <?php echo "'" . ADMIN_ORIGIN . "'" ?>;
+    </script>
 </head>
 
 <body id="body">

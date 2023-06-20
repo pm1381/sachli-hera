@@ -78,8 +78,10 @@ class UserController extends AdminRefrenceController
 
     public function destroy($id)
     {
-        User::where('id', '=', $id)->delete();
-        Response::setStatus(200, 'deleted successfully');
+        $res = User::where('id', '=', $id)->delete();
+        $session = new Session();
+        ($res) ? $session->setFlash('done', SESSION_DONE) : $session->setFlash('error', SESSION_ERROR);
+        Tools::redirect(ADMIN_ORIGIN . $this->data['form']['page'] . '/list/');
     }
 
     public function edit($id)
@@ -103,7 +105,7 @@ class UserController extends AdminRefrenceController
             $where['mobile'] = "%" . Input::get('mobile') . "%";
         }
         if (Input::get('field') != "") {
-            $where['field.title'] =  Input::get('field');
+            $where['field.id'] =  Input::get('field');
         }
     }
 }

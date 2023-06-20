@@ -24,12 +24,17 @@ use App\Helpers\Tools;
                     <tr class="">
                         <td class="rowOptions counter"><?php echo $i ?></td>
                         <td class="rowOptions"><?php echo $value->title ?></td>
-                        <td class="rowOptions"><a href="<?php echo ORIGIN . "landing/" .  $value->address . "/" ?>"><?php echo $value->address ?></a></td>
+                        <td class="rowOptions"><a href="<?php echo ORIGIN . "landing/" .  $value->address . "/" ?>" target="_blank"><?php echo $value->address ?></a></td>
                         <td class="rowOptions d-flex">
                             <form method="POST" action="/sachadmin/landing/destroy/<?php echo $value->id ?>/">
                                 <button class="ml-1 btn btn-danger">حذف</button>
                             </form>
                             <a class="ml-1 manageActions" href="/sachadmin/landing/edit/<?php echo $value->id ?>/">مدیریت</a>
+                            <?php if (! $value->active) { ?>
+                                <a class="ml-1 manageActions" href="/sachadmin/landing/tools/active/<?php echo $value->id ?>/">فعالسازی</a>  
+                            <?php } else { ?>
+                                <a class="ml-1 manageActions" href="/sachadmin/landing/tools/diactive/<?php echo $value->id ?>/">غیرفعالسازی</a>
+                            <?php } ?>
                             <a class="ml-1 btn btn-light" href="/sachadmin/landing/showUploadImage/<?php echo $value->id ?>/">آپلود عکس</a>
                         </td>
                     </tr>

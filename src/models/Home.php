@@ -8,7 +8,7 @@ use Illuminate\Database\Capsule\Manager as DB;
 
 class Home extends BaseModel
 {
-    protected $fillable = ['heroText', 'sampleText', 'footerText', 'articleText', 'address', 'mobile', 'updated_at'];
+    protected $fillable = ['heroText', 'sampleText', 'footer', 'footerText', 'articleText', 'address', 'mobile', 'updated_at'];
     public $timestamps = false;
     //social links, footer links, map preview
 
@@ -21,22 +21,26 @@ class Home extends BaseModel
 
     public function getCreatedAtAttribute($value)
     {
-        $this->attributes['created_at'] = Date::M2J('Y-m-d', $value);
+        return Date::M2J('Y-m-d', $value);
     }
     public function getHeroTextAttribute($value)
     {
-        $this->attributes['heroText'] = html_entity_decode($value);
+        return html_entity_decode($value);
     }
     public function getSampleTextAttribute($value)
     {
-        $this->attributes['sampleText'] = html_entity_decode($value);
+        return html_entity_decode($value);
     }
     public function getFooterTextAttribute($value)
     {
-        $this->attributes['footerText'] = html_entity_decode($value);
+        return html_entity_decode($value);
     }
     public function getArticleTextAttribute($value)
     {
-        $this->attributes['articleText'] = html_entity_decode($value);
+        return html_entity_decode($value);
+    }
+    public function getFooterAttribute($value)
+    {
+        return json_decode($value, JSON_UNESCAPED_UNICODE);
     }
 }

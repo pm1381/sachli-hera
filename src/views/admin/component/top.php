@@ -23,5 +23,11 @@
 </head>
 
 <body>
-
-<?php require_once POPUP . 'loading.php' ?>
+<script>
+    Swal.fire({
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading();
+        },
+    });
+</script>

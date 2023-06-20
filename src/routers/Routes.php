@@ -23,8 +23,8 @@ class Routes
 
         $this->router->setNamespace(CONTROLLER_NAMESPACE);
         $this->router->get('/', 'site\HomeController@home');
-        $this->router->post('/consult/', 'site\HomeController@consult');
         $this->router->get('/landing/{address}/', 'site\LandingController@landing');
+        $this->router->post('/api/consult/', 'site\ApiController@consult');
 
         $this->router->get('/sachadmin/field/list/', 'admin\FieldController@list');
         $this->router->post('/sachadmin/field/create/', 'admin\FieldController@create');
@@ -48,6 +48,7 @@ class Routes
         $this->router->post('/sachadmin/landing/update/{id}/', 'admin\LandingController@update');
         $this->router->post('/sachadmin/landing/destroy/{id}/', 'admin\LandingController@destroy');
         $this->router->get('/sachadmin/landing/show/', 'admin\LandingController@show');
+        $this->router->get('/sachadmin/landing/tools/{mood}/{id}/', 'admin\LandingController@tools');
         $this->router->get('/sachadmin/landing/edit/{id}/', 'admin\LandingController@edit');
         $this->router->get('/sachadmin/landing/showUploadImage/{id}/', 'admin\LandingController@showUploadImage');
         $this->router->post('/sachadmin/landing/imageUpdate/{id}/', 'admin\LandingController@imageUpdate');

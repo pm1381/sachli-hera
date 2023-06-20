@@ -81,8 +81,10 @@ class LandingController extends AdminRefrenceController
 
     public function destroy($id)
     {
-        Landing::where('id', '=', $id)->delete();
-        Response::setStatus(200, 'deleted successfully');
+        $res = Landing::where('id', '=', $id)->delete();
+        $session = new Session();
+        ($res) ? $session->setFlash('done', SESSION_DONE) : $session->setFlash('error', SESSION_ERROR);
+        Tools::redirect(ADMIN_ORIGIN . $this->data['form']['page'] . '/list/');
     }
 
     public function imageUpdate($id)
@@ -116,5 +118,18 @@ class LandingController extends AdminRefrenceController
         $this->data['form']['actionUrl'] = ADMIN_ORIGIN . $this->data['form']['page'] . '/update/' . $id . '/';
         // Response::setStatus(200, 'found succrssfully', $res);
         Tools::render('admin\landing\manage', $this->data);
+    }
+
+    public function tools($mood, $id)
+    {
+        if ($mood == 'active') {
+            Landing::where('id', '=', $id)->update(['active' => '1', 'updated_at' => Date::now()]);
+        }
+        if ($mood == 'diactive') {
+            Landing::where('id', '=', $id)->update(['active' => '0', 'updated_at' => Date::now()]);
+        }
+        $session = new Session();
+        $session->setFlash('done', SESSION_DONE);
+        Tools::redirect(ADMIN_ORIGIN . $this->data['form']['page'] . '/list/');
     }
 }

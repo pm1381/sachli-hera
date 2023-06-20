@@ -18,13 +18,8 @@ class User extends BaseModel
         Model::preventsSilentlyDiscardingAttributes(true);
     }
 
-    // public function getNameAttribute($value)
-    // {
-    //     $this->attributes['name'] = $value . " " . $this->attributes['surname'];
-    // }
     public function getCreatedAtAttribute($value)
     {
-        $this->attributes['created_at'] = Date::M2J('Y-m-d', $value);
-        // dd($this->attributes);
+        return Date::M2J('Y-m-d', $value);
     }
 }
